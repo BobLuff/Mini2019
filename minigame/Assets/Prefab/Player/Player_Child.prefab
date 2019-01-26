@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1132317103}
   m_Layer: 0
   m_Name: Player_Child
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,12 @@ MonoBehaviour:
   animator: {fileID: 154173384038302826}
   playerMoveV: 2
   FallVelocity: 0.5
+  nextlevel_p_1: {fileID: 0}
+  nextlevel_p_2: {fileID: 0}
+  nextlevel_p_3: {fileID: 0}
+  nextlevel_p_4: {fileID: 0}
+  nextlevel_p_5: {fileID: 0}
+  nextlevel_p_6: {fileID: 0}
 --- !u!1 &6806300984762290942
 GameObject:
   m_ObjectHideFlags: 0
