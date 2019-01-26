@@ -6,6 +6,10 @@ TagManager:
   tags:
   - nextlevel
   - grow1
+  - nextlevel1
+  - nextlevel2
+  - nextlevel3
+  - nextlevel4
   layers:
   - Default
   - TransparentFX
