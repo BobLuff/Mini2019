@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
 
 
     private bool isFacingRight = true;                        //是否朝向为右 
+    public Transform nextlevel_p;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,9 +82,11 @@ public class PlayerMove : MonoBehaviour
         if (collision.tag == "nextlevel")
         {
            // Destroy(this.gameObject);
-            this.gameObject.transform.position =new Vector3(707f,328f,0f);
+            this.gameObject.transform.position =nextlevel_p.position;
         }
     }
+
+
    
 
 }

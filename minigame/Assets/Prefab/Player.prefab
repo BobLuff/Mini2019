@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMoveV: 2
   FallVelocity: 0.5
+  nextlevel_p: {fileID: 0}
 --- !u!50 &5847343211764053601
 Rigidbody2D:
   serializedVersion: 4
