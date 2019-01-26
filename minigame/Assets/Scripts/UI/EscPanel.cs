@@ -14,7 +14,8 @@ public class EscPanel : MonoBehaviour
 
 
 
-    private void HideUiObj()
+
+    private void HideEscPanel()
     {
         escPanel.SetActive(false);
 
@@ -27,8 +28,8 @@ public class EscPanel : MonoBehaviour
     public void ContinueGame()
     {
         Time.timeScale = 1;
-        HideUiObj();
 
+        HideEscPanel();
 
 
     }
@@ -47,6 +48,7 @@ public class EscPanel : MonoBehaviour
     /// </summary>
     public void GameHelp()
     {
+        HideEscPanel();
 
     }
 

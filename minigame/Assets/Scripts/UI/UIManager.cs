@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class UIManager : MonoSingleton<UIManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private GameObject escPanel;
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Escape)&&!escPanel.activeSelf)
+        {
+            escPanel.SetActive(true);
+
+        }
     }
+ 
 }
