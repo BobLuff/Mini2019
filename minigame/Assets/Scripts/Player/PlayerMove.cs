@@ -13,7 +13,12 @@ public class PlayerMove : MonoBehaviour
 
 
     private bool isFacingRight = true;                        //是否朝向为右 
-    public Transform nextlevel_p;
+    public Transform nextlevel_p_1;
+    public Transform nextlevel_p_2;
+    public Transform nextlevel_p_3;
+    public Transform nextlevel_p_4;
+    public Transform nextlevel_p_5;
+    public Transform nextlevel_p_6;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,10 +84,35 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "nextlevel")
+        if (collision.tag == "nextlevel1")
         {
            // Destroy(this.gameObject);
-            this.gameObject.transform.position =nextlevel_p.position;
+            this.gameObject.transform.position =nextlevel_p_1.position;
+        }
+        if (collision.tag == "nextlevel2")
+        {
+            // Destroy(this.gameObject);
+            this.gameObject.transform.position = nextlevel_p_2.position;
+        }
+        if (collision.tag == "nextlevel3")
+        {
+            // Destroy(this.gameObject);
+            this.gameObject.transform.position = nextlevel_p_3.position;
+        }
+        if (collision.tag == "nextlevel4")
+        {
+            // Destroy(this.gameObject);
+            this.gameObject.transform.position = nextlevel_p_4.position;
+        }
+        if (collision.tag == "nextlevel15")
+        {
+            // Destroy(this.gameObject);
+            this.gameObject.transform.position = nextlevel_p_5.position;
+        }
+        if (collision.tag == "nextlevel6")
+        {
+            // Destroy(this.gameObject);
+            this.gameObject.transform.position = nextlevel_p_6.position;
         }
     }
 
