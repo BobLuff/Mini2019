@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 /// <summary>
 /// 文字一个一个显示
@@ -14,29 +15,17 @@ public class TextStepByStep : MonoBehaviour
     [SerializeField]
     private string str = "";
     [SerializeField]
-    [Header("文字显示的时间间隔")]
-    private float intervalTime = 0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(ShowWord(str.Length));
-        
-    }
+    [Header("时间间隔")]
+    private float time = 4f;
 
-    IEnumerator ShowWord(int len)
+
+    private void Start()
     {
-        string s = null;
-        int i = 0;
-        while (i < len)
+        if (text.text != null)
         {
-            yield return new WaitForSeconds(intervalTime);
-            s += str[i].ToString();
-            text.text = s;
-            i++;
-
+            text.text = null;
         }
-        
-
+        text.DOText(str,time);
     }
 
 
