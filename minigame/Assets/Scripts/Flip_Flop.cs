@@ -12,6 +12,13 @@ public class Flip_Flop : MonoBehaviour {
     [Header("是否过段时间调用Disappert")]
     public bool cover=true;
     [Header("调用等待时间")]
+    public UnityEvent T_Touch;
+    public UnityEvent T_Disappeart;
+    [Header("对象标签名称")]
+    public string T_Tagname;
+    [Header("是否过段时间调用Disappert")]
+    public bool T_cover = true;
+    [Header("调用等待时间")]
     public float time = 5;
     public UnityEvent P_Touch;
     public UnityEvent P_Disappeart;
@@ -51,21 +58,6 @@ public class Flip_Flop : MonoBehaviour {
     }
 
 
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    Debug.Log("touch");
-    //    if (collision.gameObject.CompareTag(Tagname))
-    //    {
-    //        Touch.Invoke();
-    //        Debug.Log("tag");
-    //        if (cover)
-    //        {
-    //            StartCoroutine(start_Disappeart());
-    //        }
-
-    //    }
-    //}
-
     IEnumerator start_Disappeart()
     {
         yield return new WaitForSeconds(time);
@@ -73,6 +65,27 @@ public class Flip_Flop : MonoBehaviour {
     }
 
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(T_Tagname))
+        {
+            T_Touch.Invoke();
+            Debug.Log("T_tag");
+            if (T_cover)
+            {
+                StartCoroutine(start_T_Disappeart());
+            }
+
+
+
+        }
+    }
+
+    IEnumerator start_T_Disappeart()
+    {
+        yield return new WaitForSeconds(time);
+        T_Disappeart.Invoke();
+    }
 
     void OnParticleCollision(GameObject obj)
     {
@@ -81,7 +94,7 @@ public class Flip_Flop : MonoBehaviour {
         {
             P_Touch.Invoke();
             Debug.Log("P_tag");
-            if (cover)
+            if (P_cover)
             {
                 StartCoroutine(start_P_Disappeart());
             }
