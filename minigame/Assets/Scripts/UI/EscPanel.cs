@@ -56,7 +56,6 @@ public class EscPanel : MonoBehaviour
     public void RestartGame()
     {
         //SceneManager.LoadScene();
-        HideUiObj();
 
     }
 
