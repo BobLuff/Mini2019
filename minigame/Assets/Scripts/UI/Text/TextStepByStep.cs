@@ -18,6 +18,9 @@ public class TextStepByStep : MonoBehaviour
     [Header("时间间隔")]
     private float time = 4f;
 
+    [SerializeField]
+    private CanvasGroup canvasGroup;
+
 
     private void Start()
     {
@@ -26,7 +29,19 @@ public class TextStepByStep : MonoBehaviour
             text.text = null;
         }
         text.DOText(str,time);
+  
+
     }
 
+
+
+    /// <summary>
+    /// 渐隐UI ,需要添加canvasGroup组件
+    /// </summary>
+    void  FadeUI()
+    {
+        //DOTween.To(() => canvasGroup.alpha, x => canvasGroup.alpha = x, 1, 2);
+        canvasGroup.DOFade(0, 2);
+    }
 
 }
