@@ -11,9 +11,9 @@ public class Enemy_Control : MonoBehaviour {
     public Transform leftMove;//左侧移动边界
     [Tooltip("右侧移动边界")]
     public Transform rightMove;//右侧移动边界
-    private Vector3 moveDirection ;//角色行走方向
-    private bool turnLeft=true;
-    private bool turnRight=true;
+    public Vector3 moveDirection ;//角色行走方向
+    public bool turnLeft=true;
+   public bool turnRight=true;
     [Tooltip("跳跃开关")]
     public bool jump = false;//跳跃开关
     [Tooltip("飞行开关")]
@@ -43,9 +43,9 @@ public class Enemy_Control : MonoBehaviour {
     public GameObject exp ;//敌人死亡效果
 
     //获取敌人比例
-    float scale_x;
-    float scale_y;
-    float scale_z;
+    public float scale_x;
+    public float scale_y;
+    public float scale_z;
     
     private void Awake()
     {
@@ -64,7 +64,7 @@ public class Enemy_Control : MonoBehaviour {
         isGround = Physics2D.OverlapCircle(checkGround.position, 0.1f, groundLayer);
         if (fly == true)
         {
-            if (this.gameObject.transform.position.x <= leftMove.position.x && turnRight)
+            if (this.gameObject.transform.position.x <= leftMove.position.x)
             {
                 moveDirection = moveDirection * (-1);
                 scale_x = scale_x * (-1);
@@ -72,7 +72,7 @@ public class Enemy_Control : MonoBehaviour {
                 turnRight = false;
                 turnLeft = true;
             }
-            if (this.gameObject.transform.position.x >= rightMove.position.x && turnLeft)
+            if (this.gameObject.transform.position.x >= rightMove.position.x)
             {
                 moveDirection = moveDirection * (-1);
                 scale_x = scale_x * (-1);
@@ -136,6 +136,15 @@ public class Enemy_Control : MonoBehaviour {
     }
     private void explo() {
         Instantiate(exp, transform.position, Quaternion.identity);
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        moveDirection = moveDirection * (-1);
+        scale_x = scale_x * (-1);
+        transform.localScale = new Vector3(scale_x, scale_y, scale_z);
+       
 
     }
 }
