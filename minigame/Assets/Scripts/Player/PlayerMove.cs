@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-
     [SerializeField]
+    private Camera camera;
+    [SerializeField]
+    private Transform[] camPoints;
+
     private Animator animator;
+    [SerializeField]
+    private Animator[] animatorList;
 
     public float playerMoveV=50f;
     public float FallVelocity = 10f;
@@ -27,6 +32,8 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = animatorList[0];
+
         if (mapRotates.Length > curMapIndex)
         {
             curMap = mapRotates[curMapIndex];
@@ -142,11 +149,28 @@ public class PlayerMove : MonoBehaviour
 
     }
 
+    private void ChangePrefab(int index)
+    {
+        Animator next = animatorList[index];
+        animatorList[index-1].gameObject.SetActive(false);
+        next.gameObject.SetActive(true);
+        animator = next;
+
+    }
+
+
+    private void ChangeCam(Vector3 point)
+    {
+       camera.transform.position=new Vector3(point.x, camera.transform.position.y, camera.transform.position.z);
+    }
+ 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "nextlevel1")
         {
             ControlMap();
+            ChangePrefab(1);
+            ChangeCam(camPoints[1].position);
 
            // Destroy(this.gameObject);
             this.gameObject.transform.position =nextlevel_p_1.position;
@@ -154,24 +178,31 @@ public class PlayerMove : MonoBehaviour
         if (collision.tag == "nextlevel2")
         {
             ControlMap();
+            ChangePrefab(2);
+            ChangeCam(camPoints[2].position);
             // Destroy(this.gameObject);
             this.gameObject.transform.position = nextlevel_p_2.position;
         }
         if (collision.tag == "nextlevel3")
         {
             ControlMap();
+            ChangePrefab(3);
+            ChangeCam(camPoints[3].position);
             // Destroy(this.gameObject);
             this.gameObject.transform.position = nextlevel_p_3.position;
         }
         if (collision.tag == "nextlevel4")
         {
             ControlMap();
+            //TODO
+            ChangePrefab(0);
+            ChangeCam(camPoints[0].position);
             // Destroy(this.gameObject);
             this.gameObject.transform.position = nextlevel_p_4.position;
         }
         if (collision.tag == "nextlevel15")
         {
-            ControlMap();
+          
             // Destroy(this.gameObject);
             this.gameObject.transform.position = nextlevel_p_5.position;
         }
