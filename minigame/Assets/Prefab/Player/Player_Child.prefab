@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1132317105}
   - component: {fileID: 1132317104}
   - component: {fileID: 1132317103}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player_Child
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -96,6 +96,9 @@ MonoBehaviour:
   animator: {fileID: 154173384038302826}
   playerMoveV: 2
   FallVelocity: 0.5
+  mapRotates:
+  - {fileID: 0}
+  - {fileID: 0}
   nextlevel_p_1: {fileID: 0}
   nextlevel_p_2: {fileID: 0}
   nextlevel_p_3: {fileID: 0}
@@ -113,7 +116,7 @@ GameObject:
   - component: {fileID: 4125201295163935437}
   - component: {fileID: 4144224164727798279}
   - component: {fileID: 154173384038302826}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: player_Child
   m_TagString: Untagged
   m_Icon: {fileID: 0}

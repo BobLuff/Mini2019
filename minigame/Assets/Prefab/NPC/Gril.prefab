@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2453965275666920361}
   - component: {fileID: 2453965275666920374}
   - component: {fileID: 2453965275666920360}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Girl
   m_TagString: Girl
   m_Icon: {fileID: 0}
@@ -118,6 +118,9 @@ MonoBehaviour:
   MaxSpeed: 1
   leftMove: {fileID: 2453965275707538751}
   rightMove: {fileID: 2453965276201034279}
+  moveDirection: {x: 0, y: 0, z: 0}
+  turnLeft: 1
+  turnRight: 1
   jump: 0
   fly: 1
   jumpForce: 10
@@ -132,6 +135,9 @@ MonoBehaviour:
   die_timmer: 0.1
   exp_timmer: 0
   exp: {fileID: 0}
+  scale_x: 0
+  scale_y: 0
+  scale_z: 0
 --- !u!58 &2453965275666920360
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -157,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2453965275707538751}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2453965275707538748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21000004, y: -0.50600004, z: 0}
+  m_LocalPosition: {x: -3.04, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2453965276253829937}
@@ -187,7 +193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2453965276201034279}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2453965276201034276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.2299995, y: -0.46600008, z: 0}
+  m_LocalPosition: {x: 4.86, y: -4.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2453965276253829937}
@@ -217,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2453965276253829937}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gril
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2453965276511019088}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Checkground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
