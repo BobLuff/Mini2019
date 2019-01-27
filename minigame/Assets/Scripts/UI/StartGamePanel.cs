@@ -8,29 +8,60 @@ using UnityEngine.SceneManagement;
 public class StartGamePanel : MonoBehaviour
 {
 
-    //[SerializeField]
-    //private CanvasGroup canvasGroup=new CanvasGroup();
+    [SerializeField]
+    private CanvasGroup canvasgroup = new CanvasGroup();
+    [SerializeField]
+    private GameObject btn;
 
 
-    //private void Awake()
-    //{
+    private void Awake()
+    {
+        if (btn.activeInHierarchy == true)
+        {
+            btn.SetActive(false);
+        }
+        if (canvasgroup.alpha != 0)
+        {
+            canvasgroup.alpha = 0;
 
-    //    if (canvasGroup.alpha != 0)
-    //    {
-    //        canvasGroup.alpha = 0;
+        }
+    }
 
-    //    }
- 
-    //}
 
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-    //    canvasGroup.DOFade(1, 2.5f);
- 
-        
-    //}
+    // start is called before the first frame update
 
+
+    private void Start()
+    {
+        canvasgroup.DOFade(1, 5f);
+
+        StartCoroutine(ShowBtn());
+    }
+
+
+    IEnumerator ShowBtn()
+    {
+
+        yield return new WaitForSeconds(2.5f);
+       
+        btn.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        btn.transform.DOScale(new Vector3(1.4f, 1.4f, 1), 0.3f);
+        yield return new WaitForSeconds(0.5f);
+        btn.transform.DOScale(new Vector3(1, 1, 1), 0.5f);
+
+    }
+
+    public void MouseEnterBtn()
+    {
+        btn.transform.DOScale(new Vector3(1.4f, 1.4f, 1), 0.3f);
+    }
+
+    public void MouseExitBtn()
+    {
+        btn.transform.DOScale(new Vector3(1, 1, 1), 0.5f);
+
+    }
 
 
     public void EnterGame(string sceneName)
