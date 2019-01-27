@@ -123,39 +123,61 @@ public class PlayerMove : MonoBehaviour
 
     }
 
+    private void ControlMap()
+    {
+        curMap.isRoutateMap = false;
+        curMapIndex++;
+        if (curMapIndex < mapRotates.Length)
+        {
+            curMap = mapRotates[curMapIndex];
+            curMap.isRoutateMap = true;
+        }
+        else
+        {
+            Debug.LogError("===== mapRotate赋值错误 ====");
+
+        }
+
+
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "nextlevel1")
         {
-            curMap.isRoutateMap = false;
-            curMapIndex++;
-            curMap = mapRotates[curMapIndex];
-            curMap.isRoutateMap = true;
+            ControlMap();
+
            // Destroy(this.gameObject);
             this.gameObject.transform.position =nextlevel_p_1.position;
         }
         if (collision.tag == "nextlevel2")
         {
+            ControlMap();
             // Destroy(this.gameObject);
             this.gameObject.transform.position = nextlevel_p_2.position;
         }
         if (collision.tag == "nextlevel3")
         {
+            ControlMap();
             // Destroy(this.gameObject);
             this.gameObject.transform.position = nextlevel_p_3.position;
         }
         if (collision.tag == "nextlevel4")
         {
+            ControlMap();
             // Destroy(this.gameObject);
             this.gameObject.transform.position = nextlevel_p_4.position;
         }
         if (collision.tag == "nextlevel15")
         {
+            ControlMap();
             // Destroy(this.gameObject);
             this.gameObject.transform.position = nextlevel_p_5.position;
         }
         if (collision.tag == "nextlevel6")
         {
+            ControlMap();
             // Destroy(this.gameObject);
             this.gameObject.transform.position = nextlevel_p_6.position;
         }
