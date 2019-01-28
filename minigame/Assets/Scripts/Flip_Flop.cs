@@ -12,6 +12,7 @@ public class Flip_Flop : MonoBehaviour {
     [Header("是否过段时间调用Disappert")]
     public bool cover=true;
     [Header("调用等待时间")]
+    public float time = 5;
     public UnityEvent T_Touch;
     public UnityEvent T_Disappeart;
     [Header("对象标签名称")]
@@ -19,7 +20,7 @@ public class Flip_Flop : MonoBehaviour {
     [Header("是否过段时间调用Disappert")]
     public bool T_cover = true;
     [Header("调用等待时间")]
-    public float time = 5;
+    public float T_time = 5;
     public UnityEvent P_Touch;
     public UnityEvent P_Disappeart;
     [Header("粒子名称")]
@@ -83,7 +84,7 @@ public class Flip_Flop : MonoBehaviour {
 
     IEnumerator start_T_Disappeart()
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(T_time);
         T_Disappeart.Invoke();
     }
 
@@ -104,7 +105,7 @@ public class Flip_Flop : MonoBehaviour {
 
     IEnumerator start_P_Disappeart()
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(P_time);
         P_Disappeart.Invoke();
     }
 }
